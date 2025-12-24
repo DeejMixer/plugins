@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mixlar Marketplace - Plugins & Integrations</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <i class="fa-solid fa-cube"></i>
+                    <span>Mixlar Marketplace</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#" class="active">Plugins</a>
+                    <a href="#">Docs</a>
+                    <a href="#">Support</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Mixlar Plugin Marketplace</h1>
+            <p>Enhance your Mixlar experience with powerful plugins and integrations</p>
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number" id="totalPlugins">7</span>
+                    <span class="stat-label">Plugins Available</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Categories</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Free</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="filters">
+            <div class="filter-group">
+                <button class="filter-btn active" data-category="all">All Plugins</button>
+                <button class="filter-btn" data-category="core">Core</button>
+                <button class="filter-btn" data-category="streaming">Streaming</button>
+                <button class="filter-btn" data-category="smarthome">Smart Home</button>
+                <button class="filter-btn" data-category="control">Control</button>
+                <button class="filter-btn" data-category="creative">Creative</button>
+            </div>
+            <div class="search-box">
+                <i class="fa-solid fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search plugins...">
+            </div>
+        </section>
+
+        <section class="plugins-grid" id="pluginsGrid">
+            <!-- Plugins will be dynamically loaded here -->
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Mixlar Marketplace</h3>
+                    <p>Discover and install plugins to enhance your Mixlar device.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <a href="#">Documentation</a>
+                    <a href="#">Developer Guide</a>
+                    <a href="#">API Reference</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <a href="#">GitHub</a>
+                    <a href="#">Discord</a>
+                    <a href="#">Forum</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <a href="#">Help Center</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Report Issue</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MixlarLabs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

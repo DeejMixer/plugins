@@ -7,7 +7,7 @@
     "status": "instruction",
     "author": "MixlarLabs",
     "socialUrl": "https://github.com/MixlarLabs",
-    "description": "Required for the iOS App and Web Controller to work. If not activated, you will be limited to the PC app (Mixlar Control).",
+    "description": "Required for the iOS App and Web Controller to work. If not activated, you will be limited to the PC app (Mixlar Control)!",
     "imageColor": "from-slate-700 to-slate-900",
     "icon": "fa-server",
     "downloadUrl": null,

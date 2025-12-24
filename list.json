@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "name": "Mixlar Webserver",
+    "category": "core",
+    "tag": "Connectivity",
+    "status": "instruction",
+    "description": "Required for the iOS App and Web Controller to work. If not activated, you will be limited to the PC app (Mixlar Control).",
+    "imageColor": "from-slate-700 to-slate-900",
+    "icon": "fa-server",
+    "downloadUrl": null,
+    "instructionUrl": "https://docs.mixlarlabs.com/webserver"
+  },
+  {
+    "id": 2,
+    "name": "Active Overlay",
+    "category": "core",
+    "tag": "Visuals",
+    "status": "installed",
+    "description": "A clean on-screen overlay that mirrors your sliders on your PC screen. Lets you check levels at a glance without alt-tabbing.",
+    "imageColor": "from-blue-600 to-indigo-600",
+    "icon": "fa-desktop",
+    "downloadUrl": null,
+    "instructionUrl": null
+  },
+  {
+    "id": 3,
+    "name": "OBS Studio",
+    "category": "streaming",
+    "tag": "Integration",
+    "status": "instruction",
+    "description": "Control scenes, sources, and audio levels directly from Mixlar. Requires WebSocket configuration in OBS.",
+    "imageColor": "from-gray-800 to-gray-950",
+    "icon": "fa-video",
+    "downloadUrl": null,
+    "instructionUrl": "https://docs.mixlarlabs.com/obs-setup"
+  },
+  {
+    "id": 4,
+    "name": "Home Assistant",
+    "category": "smarthome",
+    "tag": "IoT",
+    "status": "instruction",
+    "description": "Link Mixlar to your smart home. Control lights and scenes using your HA URL and Long-Lived Access Token.",
+    "imageColor": "from-cyan-600 to-blue-700",
+    "icon": "fa-house-signal",
+    "downloadUrl": null,
+    "instructionUrl": "https://docs.mixlarlabs.com/home-assistant"
+  },
+  {
+    "id": 5,
+    "name": "Custom MIDI",
+    "category": "control",
+    "tag": "Protocol",
+    "status": "instruction",
+    "description": "Map any physical MIDI controller to Mixlar. The software detects CC messages and saves mappings automatically.",
+    "imageColor": "from-emerald-600 to-teal-700",
+    "icon": "fa-sliders",
+    "downloadUrl": null,
+    "instructionUrl": "https://docs.mixlarlabs.com/midi"
+  },
+  {
+    "id": 6,
+    "name": "Adobe Creative",
+    "category": "creative",
+    "tag": "Workflow",
+    "status": "download",
+    "description": "Map sliders to brush sizes, zoom, or timeline scrubbing. Includes shortcuts for Photoshop and Premiere Pro.",
+    "imageColor": "from-fuchsia-700 to-purple-800",
+    "icon": "fa-pen-ruler",
+    "downloadUrl": "https://github.com/mixlarlabs/adobe-plugin/releases",
+    "instructionUrl": "https://docs.mixlarlabs.com/adobe"
+  },
+  {
+    "id": 7,
+    "name": "SteelSeries Sonar",
+    "category": "streaming",
+    "tag": "Audio",
+    "status": "instruction",
+    "description": "Route Game, Chat, and Media channels to physical sliders for independent mixing control.",
+    "imageColor": "from-orange-600 to-amber-700",
+    "icon": "fa-headset",
+    "downloadUrl": null,
+    "instructionUrl": "https://docs.mixlarlabs.com/sonar"
+  }
+]

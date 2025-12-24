@@ -12,8 +12,8 @@
     "icon": "fa-server",
     "downloadUrl": null,
     "instructionUrl": "https://docs.mixlarlabs.com/webserver",
-    "version": "v1.2.0"
-    
+    "devices": ["Mixlar Mix"],
+    "version": "1.2.0"
   },
   {
     "id": 2,
@@ -27,7 +27,9 @@
     "imageColor": "from-blue-600 to-indigo-600",
     "icon": "fa-desktop",
     "downloadUrl": null,
-    "instructionUrl": null
+    "instructionUrl": null,
+    "devices": ["Mixlar Mix"],
+    "version": "1.0.0"
   },
   {
     "id": 3,
@@ -41,7 +43,9 @@
     "imageColor": "from-gray-800 to-gray-950",
     "icon": "fa-video",
     "downloadUrl": null,
-    "instructionUrl": "https://docs.mixlarlabs.com/obs-setup"
+    "instructionUrl": "https://docs.mixlarlabs.com/obs-setup",
+    "devices": ["Mixlar Mix"],
+    "version": "1.1.0"
   },
   {
     "id": 4,
@@ -55,7 +59,9 @@
     "imageColor": "from-cyan-600 to-blue-700",
     "icon": "fa-house-signal",
     "downloadUrl": null,
-    "instructionUrl": "https://docs.mixlarlabs.com/home-assistant"
+    "instructionUrl": "https://docs.mixlarlabs.com/home-assistant",
+    "devices": ["Mixlar Mix"],
+    "version": "1.0.2"
   },
   {
     "id": 5,
@@ -69,7 +75,9 @@
     "imageColor": "from-emerald-600 to-teal-700",
     "icon": "fa-sliders",
     "downloadUrl": null,
-    "instructionUrl": "https://docs.mixlarlabs.com/midi"
+    "instructionUrl": "https://docs.mixlarlabs.com/midi",
+    "devices": ["Mixlar Mix"],
+    "version": "1.0.0"
   },
   {
     "id": 6,
@@ -83,7 +91,9 @@
     "imageColor": "from-fuchsia-700 to-purple-800",
     "icon": "fa-pen-ruler",
     "downloadUrl": "https://github.com/mixlarlabs/adobe-plugin/releases",
-    "instructionUrl": "https://docs.mixlarlabs.com/adobe"
+    "instructionUrl": "https://docs.mixlarlabs.com/adobe",
+    "devices": ["Mixlar Mix"],
+    "version": "1.2.0"
   },
   {
     "id": 7,
@@ -97,6 +107,8 @@
     "imageColor": "from-orange-600 to-amber-700",
     "icon": "fa-headset",
     "downloadUrl": null,
-    "instructionUrl": "https://docs.mixlarlabs.com/sonar"
+    "instructionUrl": "https://docs.mixlarlabs.com/sonar",
+    "devices": ["Mixlar Mix"],
+    "version": "1.0.1"
   }
 ]

@@ -11,7 +11,9 @@
     "imageColor": "from-slate-700 to-slate-900",
     "icon": "fa-server",
     "downloadUrl": null,
-    "instructionUrl": "https://docs.mixlarlabs.com/webserver"
+    "instructionUrl": "https://docs.mixlarlabs.com/webserver",
+    "version": "v1.2.0"
+    
   },
   {
     "id": 2,

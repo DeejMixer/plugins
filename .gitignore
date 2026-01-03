@@ -1,0 +1,32 @@
+# Sensitive configuration files
+config/config.php
+
+# Environment files
+.env
+.env.local
+
+# Vendor dependencies
+/vendor/
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+/logs/
+
+# Temporary files
+*.tmp
+*.bak
+*~
+
+# Upload directories
+/uploads/
+/tmp/

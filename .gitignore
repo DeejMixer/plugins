@@ -1,5 +1,7 @@
 node_modules/
 .env
+config/config.php
 uploads/
 *.log
 .DS_Store
+test-*.php

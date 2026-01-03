@@ -2,6 +2,18 @@
 
 A full-featured plugin marketplace with user authentication, admin portal, and plugin management system. Built with PHP, MySQL, and vanilla JavaScript.
 
+## 🚨 Login Not Working on Hostinger?
+
+**→ See [QUICK_START.md](QUICK_START.md) for the 3-step fix!**
+
+**Or use the web-based setup tool:** Just visit `https://your-domain.com/setup.php` in your browser
+
+### Setup Guides
+- **[QUICK_START.md](QUICK_START.md)** - Start here! 3 easy steps (5 minutes)
+- **[HOW_TO_RUN_ON_HOSTINGER.md](HOW_TO_RUN_ON_HOSTINGER.md)** - Multiple setup methods
+- **[FIX_LOGIN.md](FIX_LOGIN.md)** - Detailed troubleshooting
+- **[SETUP_GUIDE.md](SETUP_GUIDE.md)** - Complete configuration guide
+
 ## Features
 
 ### 🔐 Authentication System

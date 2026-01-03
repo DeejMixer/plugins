@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mixlar Marketplace - Extend Your Mixlar Experience</title>
-    <link rel="stylesheet" href="/frontend/public/css/styles.css">
+    <link rel="stylesheet" href="public/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .landing-hero {
@@ -257,13 +257,13 @@
                     <span>Mixlar Marketplace</span>
                 </div>
                 <div class="nav-links">
-                    <a href="/frontend/public/index.html">Browse Plugins</a>
+                    <a href="public/index.html">Browse Plugins</a>
                     <a href="#features">Features</a>
                     <a href="#about">About</a>
                 </div>
                 <div class="nav-auth">
-                    <a href="/frontend/public/login.html" class="btn btn-secondary">Login</a>
-                    <a href="/frontend/public/signup.html" class="btn btn-primary">Sign Up</a>
+                    <a href="public/login.html" class="btn btn-secondary">Login</a>
+                    <a href="public/signup.html" class="btn btn-primary">Sign Up</a>
                 </div>
             </div>
         </div>
@@ -278,10 +278,10 @@
                     From streaming tools to smart home control, find everything you need in one place.
                 </p>
                 <div class="hero-buttons">
-                    <a href="/frontend/public/index.html" class="btn btn-primary btn-large">
+                    <a href="public/index.html" class="btn btn-primary btn-large">
                         <i class="fa-solid fa-rocket"></i> Explore Plugins
                     </a>
-                    <a href="/frontend/public/signup.html" class="btn btn-secondary btn-large">
+                    <a href="public/signup.html" class="btn btn-secondary btn-large">
                         <i class="fa-solid fa-user-plus"></i> Get Started Free
                     </a>
                 </div>
@@ -392,7 +392,7 @@
                 <!-- Popular plugins will be loaded here -->
             </div>
             <div style="text-align: center; margin-top: 3rem;">
-                <a href="/frontend/public/index.html" class="btn btn-primary btn-large">
+                <a href="public/index.html" class="btn btn-primary btn-large">
                     View All Plugins <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>
@@ -407,10 +407,10 @@
                     Join the Mixlar community today and start enhancing your setup with powerful plugins and integrations.
                 </p>
                 <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="/frontend/public/signup.html" class="btn btn-white btn-large">
+                    <a href="public/signup.html" class="btn btn-white btn-large">
                         <i class="fa-solid fa-user-plus"></i> Create Free Account
                     </a>
-                    <a href="/frontend/public/index.html" class="btn btn-secondary btn-large" style="border: 2px solid white; background: transparent; color: white;">
+                    <a href="public/index.html" class="btn btn-secondary btn-large" style="border: 2px solid white; background: transparent; color: white;">
                         <i class="fa-solid fa-compass"></i> Explore Marketplace
                     </a>
                 </div>
@@ -471,7 +471,7 @@
                 }
 
                 container.innerHTML = popularPlugins.map(plugin => `
-                    <div class="plugin-card" onclick="window.location.href='/frontend/public/index.html'">
+                    <div class="plugin-card" onclick="window.location.href='public/index.html'">
                         <div class="plugin-image" style="background: linear-gradient(135deg, ${getGradientColors(plugin.image_color)});">
                             <i class="${plugin.icon}"></i>
                             <span class="plugin-status status-${plugin.status}">${plugin.status}</span>

@@ -2,6 +2,15 @@ let allPlugins = [];
 let currentFilter = 'all';
 let searchQuery = '';
 
+
+// Fix Font Awesome icon class - add fa-solid prefix if missing
+function getIconClass(icon) {
+  if (!icon) return 'fa-solid fa-puzzle-piece';
+  if (icon.includes('fa-solid') || icon.includes('fa-brands') || icon.includes('fa-regular')) {
+    return icon;
+  }
+  return 'fa-solid ' + icon;
+}
 // Initialize the marketplace
 document.addEventListener('DOMContentLoaded', () => {
   setupAuth();
@@ -112,7 +121,7 @@ function createPluginCard(plugin) {
   return `
     <div class="plugin-card" data-plugin-id="${plugin.id}">
       <div class="plugin-image" style="background: linear-gradient(135deg, ${getGradientColors(plugin.image_color || plugin.imageColor)});">
-        <i class="${plugin.icon}"></i>
+        <i class="${getIconClass(plugin.icon)}"></i>
         <span class="plugin-status ${statusClass}">${statusLabel}</span>
       </div>
       <div class="plugin-body">

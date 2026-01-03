@@ -23,7 +23,7 @@ function setupAuth() {
           <span>${user.username}</span>
         </div>
       </div>
-      ${user.role === 'admin' ? '<a href="admin.php" class="btn btn-secondary">Admin</a>' : ''}
+      ${user.role === 'admin' ? '<a href="admin.php" class="btn btn-secondary">Admin</a>' : '<a href="dashboard.php" class="btn btn-secondary">Dashboard</a>'}
       <button class="btn btn-secondary" onclick="logout()">Logout</button>
     `;
   } else {

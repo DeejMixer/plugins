@@ -79,9 +79,9 @@
 
                 // Redirect based on role
                 if (data.user.role === 'admin') {
-                    window.location.href = '/public/admin.html';
+                    window.location.href = 'admin.php';
                 } else {
-                    window.location.href = '/public/index.html';
+                    window.location.href = 'dashboard.php';
                 }
             } catch (error) {
                 errorDiv.textContent = 'An error occurred. Please try again.';

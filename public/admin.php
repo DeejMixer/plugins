@@ -1,3 +1,11 @@
+<?php
+// Protect admin page - require authentication
+session_start();
+
+// Check if user is logged in via JWT (stored in localStorage on client side)
+// This is a basic protection - real auth happens in JavaScript
+// For better security, use server-side sessions
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +14,18 @@
     <title>Admin Portal - Mixlar Marketplace</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        // Check authentication on page load
+        (function() {
+            const token = localStorage.getItem('token');
+            const user = JSON.parse(localStorage.getItem('user') || '{}');
+
+            if (!token || user.role !== 'admin') {
+                // Not authenticated or not admin - redirect to login
+                window.location.href = 'login.html';
+            }
+        })();
+    </script>
 </head>
 <body>
     <nav class="navbar">
@@ -17,8 +37,8 @@
                 </div>
                 <div class="nav-links">
                     <a href="/">Home</a>
-                    <a href="/public/index.html">Marketplace</a>
-                    <a href="/public/admin.html" class="active">Admin</a>
+                    <a href="index.html">Marketplace</a>
+                    <a href="admin.php" class="active">Admin</a>
                 </div>
                 <div class="nav-auth">
                     <div class="user-menu">

@@ -23,13 +23,13 @@ function setupAuth() {
           <span>${user.username}</span>
         </div>
       </div>
-      ${user.role === 'admin' ? '<a href="/frontend/public/admin.html" class="btn btn-secondary">Admin</a>' : ''}
+      ${user.role === 'admin' ? '<a href="admin.php" class="btn btn-secondary">Admin</a>' : ''}
       <button class="btn btn-secondary" onclick="logout()">Logout</button>
     `;
   } else {
     navAuth.innerHTML = `
-      <a href="/frontend/public/login.html" class="btn btn-secondary">Login</a>
-      <a href="/frontend/public/signup.html" class="btn btn-primary">Sign Up</a>
+      <a href="login.html" class="btn btn-secondary">Login</a>
+      <a href="signup.html" class="btn btn-primary">Sign Up</a>
     `;
   }
 }

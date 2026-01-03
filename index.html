@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mixlar Marketplace - Extend Your Mixlar Experience</title>
+    <link rel="stylesheet" href="/frontend/public/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .landing-hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 50%, var(--bg-darker) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .landing-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-large {
+            padding: 1rem 2.5rem;
+            font-size: 1.125rem;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+
+        .btn-large:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .features-section {
+            padding: 6rem 0;
+            background: var(--bg-dark);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .stats-section {
+            padding: 4rem 0;
+            background: var(--bg-darker);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 1.125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .cta-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-description {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-white:hover {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--primary-dark);
+        }
+
+        .showcase-section {
+            padding: 6rem 0;
+            background: var(--bg-dark);
+        }
+
+        .plugin-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-large {
+                width: 100%;
+            }
+
+            .features-grid,
+            .plugin-showcase {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo" onclick="window.location.href='/'">
+                    <i class="fa-solid fa-cube"></i>
+                    <span>Mixlar Marketplace</span>
+                </div>
+                <div class="nav-links">
+                    <a href="/frontend/public/index.html">Browse Plugins</a>
+                    <a href="#features">Features</a>
+                    <a href="#about">About</a>
+                </div>
+                <div class="nav-auth">
+                    <a href="/frontend/public/login.html" class="btn btn-secondary">Login</a>
+                    <a href="/frontend/public/signup.html" class="btn btn-primary">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="landing-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Supercharge Your Mixlar</h1>
+                <p class="hero-subtitle">
+                    Discover powerful plugins and integrations to enhance your Mixlar experience.
+                    From streaming tools to smart home control, find everything you need in one place.
+                </p>
+                <div class="hero-buttons">
+                    <a href="/frontend/public/index.html" class="btn btn-primary btn-large">
+                        <i class="fa-solid fa-rocket"></i> Explore Plugins
+                    </a>
+                    <a href="/frontend/public/signup.html" class="btn btn-secondary btn-large">
+                        <i class="fa-solid fa-user-plus"></i> Get Started Free
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" id="totalPlugins">7+</div>
+                    <div class="stat-label">Plugins Available</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Categories</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Free</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="totalDownloads">1K+</div>
+                    <div class="stat-label">Downloads</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose Mixlar Marketplace?</h2>
+                <p class="section-subtitle">Everything you need to extend your Mixlar device</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="feature-title">Easy Installation</h3>
+                    <p class="feature-description">
+                        One-click installation with detailed setup guides. Get up and running in minutes.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="feature-title">Verified & Safe</h3>
+                    <p class="feature-description">
+                        All plugins are reviewed and verified by our team to ensure quality and security.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-puzzle-piece"></i>
+                    </div>
+                    <h3 class="feature-title">Diverse Collection</h3>
+                    <p class="feature-description">
+                        From streaming tools to smart home control, find plugins for every use case.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h3 class="feature-title">Developer Friendly</h3>
+                    <p class="feature-description">
+                        Submit your own plugins and share them with the community. Full API documentation included.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-rotate"></i>
+                    </div>
+                    <h3 class="feature-title">Regular Updates</h3>
+                    <p class="feature-description">
+                        Plugins are regularly updated with new features and bug fixes to ensure the best experience.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h3 class="feature-title">Community Driven</h3>
+                    <p class="feature-description">
+                        Built by the community, for the community. Join thousands of Mixlar users worldwide.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="showcase-section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Popular Plugins</h2>
+                <p class="section-subtitle">Check out some of our most popular integrations</p>
+            </div>
+            <div class="plugin-showcase" id="popularPlugins">
+                <!-- Popular plugins will be loaded here -->
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="/frontend/public/index.html" class="btn btn-primary btn-large">
+                    View All Plugins <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Get Started?</h2>
+                <p class="cta-description">
+                    Join the Mixlar community today and start enhancing your setup with powerful plugins and integrations.
+                </p>
+                <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="/frontend/public/signup.html" class="btn btn-white btn-large">
+                        <i class="fa-solid fa-user-plus"></i> Create Free Account
+                    </a>
+                    <a href="/frontend/public/index.html" class="btn btn-secondary btn-large" style="border: 2px solid white; background: transparent; color: white;">
+                        <i class="fa-solid fa-compass"></i> Explore Marketplace
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Mixlar Marketplace</h3>
+                    <p>Discover and install plugins to enhance your Mixlar device.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <a href="#">Documentation</a>
+                    <a href="#">Developer Guide</a>
+                    <a href="#">API Reference</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <a href="#">GitHub</a>
+                    <a href="#">Discord</a>
+                    <a href="#">Forum</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <a href="#">Help Center</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Report Issue</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MixlarLabs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Load popular plugins
+        async function loadPopularPlugins() {
+            try {
+                const response = await fetch('/api/plugins/list.php');
+                const plugins = await response.json();
+
+                // Get featured or top 3 plugins
+                const popularPlugins = plugins
+                    .filter(p => p.featured || p.downloads > 0)
+                    .sort((a, b) => b.downloads - a.downloads)
+                    .slice(0, 3);
+
+                const container = document.getElementById('popularPlugins');
+
+                if (popularPlugins.length === 0) {
+                    container.innerHTML = '<p style="text-align: center; color: var(--text-secondary);">Loading plugins...</p>';
+                    return;
+                }
+
+                container.innerHTML = popularPlugins.map(plugin => `
+                    <div class="plugin-card" onclick="window.location.href='/frontend/public/index.html'">
+                        <div class="plugin-image" style="background: linear-gradient(135deg, ${getGradientColors(plugin.image_color)});">
+                            <i class="${plugin.icon}"></i>
+                            <span class="plugin-status status-${plugin.status}">${plugin.status}</span>
+                        </div>
+                        <div class="plugin-body">
+                            <h3 class="plugin-title">${plugin.name}</h3>
+                            <div class="plugin-meta">
+                                <span class="tag">${plugin.tag}</span>
+                                <span class="version">v${plugin.version}</span>
+                            </div>
+                            <p class="plugin-description">${plugin.description.substring(0, 100)}...</p>
+                            <div class="plugin-footer">
+                                <span class="author">
+                                    <i class="fa-solid fa-user"></i>
+                                    ${plugin.author}
+                                </span>
+                                <span class="view-details">
+                                    View <i class="fa-solid fa-arrow-right"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+
+                // Update stats
+                document.getElementById('totalPlugins').textContent = plugins.length + '+';
+                const totalDownloads = plugins.reduce((sum, p) => sum + (p.downloads || 0), 0);
+                document.getElementById('totalDownloads').textContent = totalDownloads > 1000 ? (totalDownloads / 1000).toFixed(1) + 'K+' : totalDownloads + '+';
+            } catch (error) {
+                console.error('Error loading plugins:', error);
+            }
+        }
+
+        function getGradientColors(color) {
+            const gradientMap = {
+                'from-slate-700 to-slate-900': 'rgb(51, 65, 85), rgb(15, 23, 42)',
+                'from-blue-600 to-indigo-600': 'rgb(37, 99, 235), rgb(79, 70, 229)',
+                'from-gray-800 to-gray-950': 'rgb(31, 41, 55), rgb(3, 7, 18)',
+                'from-cyan-600 to-blue-700': 'rgb(8, 145, 178), rgb(29, 78, 216)',
+                'from-emerald-600 to-teal-700': 'rgb(5, 150, 105), rgb(15, 118, 110)',
+                'from-fuchsia-700 to-purple-800': 'rgb(162, 28, 175), rgb(107, 33, 168)',
+                'from-orange-600 to-amber-700': 'rgb(234, 88, 12), rgb(180, 83, 9)',
+            };
+            return gradientMap[color] || 'rgb(99, 102, 241), rgb(139, 92, 246)';
+        }
+
+        document.addEventListener('DOMContentLoaded', loadPopularPlugins);
+    </script>
+</body>
+</html>

@@ -21,7 +21,7 @@ function displayUserInfo() {
 // Load dashboard stats
 async function loadStats() {
   try {
-    const response = await authenticatedFetch('/api/admin/stats');
+    const response = await authenticatedFetch('/api/admin/stats.php');
     const stats = await response.json();
 
     document.getElementById('statTotalPlugins').textContent = stats.totalPlugins;
@@ -40,7 +40,7 @@ async function loadPlugins() {
     const status = document.getElementById('statusFilter').value;
     const category = document.getElementById('categoryFilter').value;
 
-    let url = '/api/admin/plugins?';
+    let url = '/api/admin/plugins.php?';
     if (status !== 'all') url += `status=${status}&`;
     if (category !== 'all') url += `category=${category}`;
 
@@ -84,17 +84,17 @@ function renderPluginsTable(plugins) {
       <td>
         <div class="actions">
           ${plugin.status === 'pending' ? `
-            <button class="btn btn-success btn-sm" onclick="approvePlugin('${plugin._id}')">
+            <button class="btn btn-success btn-sm" onclick="approvePlugin('${plugin.id}')">
               <i class="fa fa-check"></i> Approve
             </button>
-            <button class="btn btn-danger btn-sm" onclick="rejectPlugin('${plugin._id}')">
+            <button class="btn btn-danger btn-sm" onclick="rejectPlugin('${plugin.id}')">
               <i class="fa fa-times"></i> Reject
             </button>
           ` : ''}
-          <button class="btn btn-secondary btn-sm" onclick="toggleFeature('${plugin._id}', ${plugin.featured})">
+          <button class="btn btn-secondary btn-sm" onclick="toggleFeature('${plugin.id}', ${plugin.featured})">
             <i class="fa fa-star"></i> ${plugin.featured ? 'Unfeature' : 'Feature'}
           </button>
-          <button class="btn btn-danger btn-sm" onclick="deletePlugin('${plugin._id}')">
+          <button class="btn btn-danger btn-sm" onclick="deletePlugin('${plugin.id}')">
             <i class="fa fa-trash"></i>
           </button>
         </div>
@@ -106,7 +106,7 @@ function renderPluginsTable(plugins) {
 // Load users
 async function loadUsers() {
   try {
-    const response = await authenticatedFetch('/api/admin/users');
+    const response = await authenticatedFetch('/api/admin/users.php');
     const users = await response.json();
     renderUsersTable(users);
   } catch (error) {
@@ -140,14 +140,14 @@ function renderUsersTable(users) {
           ${user.role}
         </span>
       </td>
-      <td>${new Date(user.createdAt).toLocaleDateString()}</td>
+      <td>${new Date(user.created_at).toLocaleDateString()}</td>
       <td>
         <div class="actions">
-          <button class="btn btn-secondary btn-sm" onclick="toggleUserRole('${user._id}', '${user.role}')">
+          <button class="btn btn-secondary btn-sm" onclick="toggleUserRole('${user.id}', '${user.role}')">
             <i class="fa fa-user-shield"></i>
             ${user.role === 'admin' ? 'Make User' : 'Make Admin'}
           </button>
-          <button class="btn btn-danger btn-sm" onclick="deleteUser('${user._id}')">
+          <button class="btn btn-danger btn-sm" onclick="deleteUser('${user.id}')">
             <i class="fa fa-trash"></i>
           </button>
         </div>
@@ -161,7 +161,7 @@ async function approvePlugin(pluginId) {
   if (!confirm('Approve this plugin?')) return;
 
   try {
-    await authenticatedFetch(`/api/admin/plugins/${pluginId}/approve`, {
+    await authenticatedFetch(`/api/admin/approve.php?id=${pluginId}`, {
       method: 'PUT',
     });
     loadPlugins();
@@ -177,7 +177,7 @@ async function rejectPlugin(pluginId) {
   if (!confirm('Reject this plugin?')) return;
 
   try {
-    await authenticatedFetch(`/api/admin/plugins/${pluginId}/reject`, {
+    await authenticatedFetch(`/api/admin/reject.php?id=${pluginId}`, {
       method: 'PUT',
     });
     loadPlugins();
@@ -191,7 +191,7 @@ async function rejectPlugin(pluginId) {
 // Toggle feature status
 async function toggleFeature(pluginId, currentStatus) {
   try {
-    await authenticatedFetch(`/api/admin/plugins/${pluginId}/feature`, {
+    await authenticatedFetch(`/api/admin/feature.php?id=${pluginId}`, {
       method: 'PUT',
     });
     loadPlugins();
@@ -206,7 +206,7 @@ async function deletePlugin(pluginId) {
   if (!confirm('Are you sure you want to delete this plugin? This action cannot be undone.')) return;
 
   try {
-    await authenticatedFetch(`/api/admin/plugins/${pluginId}`, {
+    await authenticatedFetch(`/api/admin/delete-plugin.php?id=${pluginId}`, {
       method: 'DELETE',
     });
     loadPlugins();
@@ -224,7 +224,7 @@ async function toggleUserRole(userId, currentRole) {
   if (!confirm(`Change user role to ${newRole}?`)) return;
 
   try {
-    await authenticatedFetch(`/api/admin/users/${userId}/role`, {
+    await authenticatedFetch(`/api/admin/change-role.php?id=${userId}`, {
       method: 'PUT',
       body: JSON.stringify({ role: newRole }),
     });
@@ -241,7 +241,7 @@ async function deleteUser(userId) {
   if (!confirm('Are you sure you want to delete this user? This action cannot be undone.')) return;
 
   try {
-    await authenticatedFetch(`/api/admin/users/${userId}`, {
+    await authenticatedFetch(`/api/admin/delete-user.php?id=${userId}`, {
       method: 'DELETE',
     });
     loadUsers();

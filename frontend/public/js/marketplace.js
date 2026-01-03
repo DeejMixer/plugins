@@ -37,7 +37,7 @@ function setupAuth() {
 // Load plugins from API
 async function loadPlugins() {
   try {
-    const response = await fetch('/api/plugins');
+    const response = await fetch('/api/plugins/list.php');
     allPlugins = await response.json();
     updateStats();
     renderPlugins();
@@ -110,8 +110,8 @@ function createPluginCard(plugin) {
   const statusLabel = plugin.status.charAt(0).toUpperCase() + plugin.status.slice(1);
 
   return `
-    <div class="plugin-card" data-plugin-id="${plugin._id}">
-      <div class="plugin-image" style="background: linear-gradient(135deg, ${getGradientColors(plugin.imageColor)});">
+    <div class="plugin-card" data-plugin-id="${plugin.id}">
+      <div class="plugin-image" style="background: linear-gradient(135deg, ${getGradientColors(plugin.image_color || plugin.imageColor)});">
         <i class="${plugin.icon}"></i>
         <span class="plugin-status ${statusClass}">${statusLabel}</span>
       </div>
@@ -155,7 +155,7 @@ function getGradientColors(tailwindClass) {
 
 // Show plugin detail (simple alert for now)
 function showPluginDetail(pluginId) {
-  const plugin = allPlugins.find(p => p._id === pluginId);
+  const plugin = allPlugins.find(p => p.id == pluginId);
   if (!plugin) return;
 
   let detailHtml = `
@@ -168,12 +168,12 @@ function showPluginDetail(pluginId) {
       <p><strong>Downloads:</strong> ${plugin.downloads || 0}</p>
   `;
 
-  if (plugin.downloadUrl) {
-    detailHtml += `<p><a href="${plugin.downloadUrl}" target="_blank" class="btn btn-primary">Download</a></p>`;
+  if (plugin.download_url || plugin.downloadUrl) {
+    detailHtml += `<p><a href="${plugin.download_url || plugin.downloadUrl}" target="_blank" class="btn btn-primary">Download</a></p>`;
   }
 
-  if (plugin.instructionUrl) {
-    detailHtml += `<p><a href="${plugin.instructionUrl}" target="_blank" class="btn btn-secondary">View Instructions</a></p>`;
+  if (plugin.instruction_url || plugin.instructionUrl) {
+    detailHtml += `<p><a href="${plugin.instruction_url || plugin.instructionUrl}" target="_blank" class="btn btn-secondary">View Instructions</a></p>`;
   }
 
   detailHtml += '</div>';

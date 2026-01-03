@@ -4,21 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mixlar Marketplace - Plugins & Integrations</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
             <div class="nav-content">
-                <div class="logo">
+                <div class="logo" onclick="window.location.href='/'">
                     <i class="fa-solid fa-cube"></i>
                     <span>Mixlar Marketplace</span>
                 </div>
                 <div class="nav-links">
-                    <a href="#" class="active">Plugins</a>
+                    <a href="/" class="active">Plugins</a>
                     <a href="#">Docs</a>
                     <a href="#">Support</a>
+                </div>
+                <div class="nav-auth">
+                    <!-- Will be populated by JS -->
                 </div>
             </div>
         </div>
@@ -30,7 +33,7 @@
             <p>Enhance your Mixlar experience with powerful plugins and integrations</p>
             <div class="stats">
                 <div class="stat">
-                    <span class="stat-number" id="totalPlugins">7</span>
+                    <span class="stat-number" id="totalPlugins">0</span>
                     <span class="stat-label">Plugins Available</span>
                 </div>
                 <div class="stat">
@@ -38,8 +41,8 @@
                     <span class="stat-label">Categories</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-number">100%</span>
-                    <span class="stat-label">Free</span>
+                    <span class="stat-number" id="totalDownloads">0</span>
+                    <span class="stat-label">Downloads</span>
                 </div>
             </div>
         </div>
@@ -62,7 +65,7 @@
         </section>
 
         <section class="plugins-grid" id="pluginsGrid">
-            <!-- Plugins will be dynamically loaded here -->
+            <div class="spinner"></div>
         </section>
     </main>
 
@@ -98,6 +101,6 @@
         </div>
     </footer>
 
-    <script src="app.js"></script>
+    <script src="/js/marketplace.js"></script>
 </body>
 </html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal - Mixlar Marketplace</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo" onclick="window.location.href='/'">
+                    <i class="fa-solid fa-cube"></i>
+                    <span>Mixlar Marketplace Admin</span>
+                </div>
+                <div class="nav-links">
+                    <a href="/">Marketplace</a>
+                    <a href="/admin.html" class="active">Admin</a>
+                </div>
+                <div class="nav-auth">
+                    <div class="user-menu">
+                        <div class="user-info">
+                            <div class="user-avatar" id="userAvatar">A</div>
+                            <span id="userName">Admin</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="admin-header">
+        <div class="container">
+            <h1>Admin Dashboard</h1>
+            <p style="color: var(--text-secondary);">Manage plugins, users, and marketplace settings</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="admin-stats" id="statsContainer">
+            <div class="stat-card">
+                <h3>Total Plugins</h3>
+                <div class="number" id="statTotalPlugins">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Approved</h3>
+                <div class="number" id="statApprovedPlugins">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Pending Review</h3>
+                <div class="number" id="statPendingPlugins">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Total Users</h3>
+                <div class="number" id="statTotalUsers">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Downloads</h3>
+                <div class="number" id="statTotalDownloads">0</div>
+            </div>
+        </div>
+
+        <div class="admin-tabs">
+            <button class="tab-btn active" data-tab="plugins">Plugins</button>
+            <button class="tab-btn" data-tab="users">Users</button>
+        </div>
+
+        <!-- Plugins Tab -->
+        <div id="pluginsTab" class="tab-content">
+            <div style="margin-bottom: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                <select id="statusFilter" class="filter-btn" style="padding: 0.5rem 1rem;">
+                    <option value="all">All Statuses</option>
+                    <option value="pending">Pending</option>
+                    <option value="approved">Approved</option>
+                    <option value="rejected">Rejected</option>
+                </select>
+                <select id="categoryFilter" class="filter-btn" style="padding: 0.5rem 1rem;">
+                    <option value="all">All Categories</option>
+                    <option value="core">Core</option>
+                    <option value="streaming">Streaming</option>
+                    <option value="smarthome">Smart Home</option>
+                    <option value="control">Control</option>
+                    <option value="creative">Creative</option>
+                </select>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Plugin Name</th>
+                            <th>Category</th>
+                            <th>Author</th>
+                            <th>Status</th>
+                            <th>Downloads</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pluginsTableBody">
+                        <tr>
+                            <td colspan="6" style="text-align: center; padding: 2rem;">
+                                <div class="spinner"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Users Tab -->
+        <div id="usersTab" class="tab-content hidden">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Joined</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTableBody">
+                        <tr>
+                            <td colspan="5" style="text-align: center; padding: 2rem;">
+                                <div class="spinner"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="/js/admin.js"></script>
+</body>
+</html>
